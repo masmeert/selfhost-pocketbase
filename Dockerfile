@@ -3,8 +3,11 @@ FROM alpine:latest
 ARG PB_VERSION=0.19.2
 
 RUN apk add --no-cache \
-  unzip \
-  ca-certificates
+    ca-certificates \
+    unzip \
+    wget \
+    zip \
+    zlib-dev
 
 ADD https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/pocketbase_${PB_VERSION}_linux_amd64.zip /tmp/pb.zip
 RUN unzip /tmp/pb.zip -d /app/pocketbase/ && \
