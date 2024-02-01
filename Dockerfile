@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-ARG PB_VERSION=0.19.2
+ARG PB_VERSION=0.21.1
 
 RUN apk add --no-cache \
     ca-certificates \
@@ -9,10 +9,11 @@ RUN apk add --no-cache \
     zip \
     zlib-dev
 
-ADD https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/pocketbase_${PB_VERSION}_linux_amd64.zip /tmp/pb.zip
-RUN unzip /tmp/pb.zip -d /app/pocketbase/ && \
-  chmod +x /app/pocketbase/pocketbase && \
-  rm -rf /tmp/pb.zip
+ADD https://github.com/pocketbase/pocketbase/releases/download/v${POCKETBASE_VERSION}/pocketbase_${POCKETBASE_VERSION}_linux_amd64.zip /app/pocketbase/pocketbase.zip
+
+RUN unzip /app/pocketbase/pocketbase.zip -d /app/pocketbase && \
+    chmod +x /app/pocketbase/pocketbase && \
+    rm /app/pocketbase/pocketbase.zip
 
 # COPY ./apps/pocketbase/pb_migrations /pb/pb_migrations
 # COPY ./pocketbase/pb_hooks /pb/pb_hooks
