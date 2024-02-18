@@ -16,7 +16,7 @@ RUN unzip /app/pocketbase/pocketbase.zip -d /app/pocketbase && \
 # COPY ./apps/pocketbase/pb_migrations /pb/pb_migrations
 # COPY ./pocketbase/pb_hooks /pb/pb_hooks
 
-EXPOSE 8090
+EXPOSE 8091
 
 # start PocketBase
-CMD ["/app/pocketbase/pocketbase", "serve", "--http=0.0.0.0:8090", "--dir=/app/data/pb_data", "--publicDir=/app/data/pb_public"]
+CMD ["/app/pocketbase/pocketbase", "serve", "--http=0.0.0.0:8091", "--dir=/app/data/pb_data", "--publicDir=/app/data/pb_public"]
