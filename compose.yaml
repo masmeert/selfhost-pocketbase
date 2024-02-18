@@ -2,14 +2,14 @@ version: "3.9"
 
 services:
   pocketbase:
-    container_name: pocketbase
+    container_name: steelmonkeys-pocketbase
     build: .
     image: pocketbase:latest
     volumes:
-      - pocketbase-volume:/app/data
+      - steelmonkeys-volume:/app/data
     ports:
       - "8090:8090"
 
 volumes:
-  pocketbase-volume:
-    name: pocketbase-volume
+  steelmonkeys-volume:
+    name: steelmonkeys-volume
